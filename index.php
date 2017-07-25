@@ -43,13 +43,13 @@ require_once('config.php');
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Issue Number</label>
-                        <input class="form-control" id="name" type="text" data-stripe="issue_no" placeholder="Issue number">
+                        <input class="form-control" id="issueno" type="text" data-stripe="issue_no" placeholder="Issue number">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Number Plate</label>
-                        <input class="form-control" id="name" type="text" data-stripe="number_plate" placeholder="Your Number Plate">
+                        <input class="form-control" id="noplate" type="text" data-stripe="number_plate" placeholder="Your Number Plate">
                       </div>
                     </div>
                   </div>
@@ -57,9 +57,9 @@ require_once('config.php');
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Select Fee</label>
-                          <select class="form-control" >
-                            <option value="1">£50.00 <small>(Paid within 7 Days)</small></option>
-                            <option value="2">£100.00</option>
+                          <select class="form-control" id="fee" >
+                            <option value="50.00">£50.00 <small>(Paid within 7 Days)</small></option>
+                            <option value="100.00">£100.00</option>
                           </select>
                         </div>
                       </div>
