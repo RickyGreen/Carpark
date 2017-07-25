@@ -40,6 +40,14 @@ require_once('config.php');
               <div class="panel-body">
                   <div class="payment-errors"></div>
                   <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" id="email" type="text" data-stripe="email" placeholder="Your Name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Issue Number</label>
@@ -84,7 +92,21 @@ require_once('config.php');
                     <div class="col-md-7">
                       <div class="form-group">
                         <label>Expiry</label>
-                        <input class="form-control" id="cc_exp" type="date" size="2" data-stripe="exp" placeholder="MM / YY">
+                        <div class="row">
+                          <select class="form-control col-sm-6" id="exp_month">
+                            <?php for ($month = 1; $month <= 12; $month++) { ?>
+                            	<option value="<?php echo strlen($month)==1 ? '0'.$month : $month; ?>"><?php echo strlen($month)==1 ? '0'.$month : $month; ?></option>
+                            <?php } ?>
+                          </select>
+                          <select class="form-control col-sm-6" id="exp_year">
+                            <?php
+                            for( $i = 0; $i <= 20; $i++ ){
+                                $year = date('Y', strtotime((0 + $i).'years'));
+                                echo '<option value="'.$year.'">'.$year.'</option>';
+                            }
+                            ?>
+                          </select>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-5">

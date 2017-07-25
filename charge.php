@@ -1,5 +1,5 @@
 <?php
-require_once('./config.php');
+require_once('config.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
@@ -12,10 +12,10 @@ $customer = \Stripe\Customer::create(array(
 ));
 
 $card = array(
-  $card->number = $_POST['card_number'],
+  $card->number = $_POST['number'],
   $card->cvc = $_POST['cvc'],
   $card->exp_month = $_POST['exp_month'],
-  $card->exp_year = $_POST['exp_month'],
+  $card->exp_year = $_POST['exp_year'],
   $card->number = $_POST['number']
 );
 
