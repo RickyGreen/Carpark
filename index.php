@@ -34,11 +34,82 @@ require_once('config.php');
         <h3 class="text-muted">CourtHouse</h3>
       </div>
 
-      <form action="charge.php" method="post">
-      <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-              data-key="<?php echo $stripe['publishable_key']; ?>"
-              data-amount="5000" data-description="One year's subscription"></script>
-    </form>
+      <div class="col-sm-6">
+        <form action="charge.php" method="post" id="payment-form">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                  <div class="payment-errors"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Issue Number</label>
+                        <input class="form-control" id="name" type="text" data-stripe="issue_no" placeholder="Issue number">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Number Plate</label>
+                        <input class="form-control" id="name" type="text" data-stripe="number_plate" placeholder="Your Number Plate">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Select Fee</label>
+                          <select class="form-control" >
+                            <option value="1">£50.00 <small>(Paid within 7 Days)</small></option>
+                            <option value="2">£100.00</option>
+                          </select>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input class="form-control" id="name" type="text" data-stripe="name" placeholder="Your Name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Card Number</label>
+                        <input class="form-control" id="number" type="tel" size="20" data-stripe="number" placeholder="4242 4242 4242 4242">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <label>Expiry</label>
+                        <input class="form-control" id="cc_exp" type="tel" size="2" data-stripe="exp" placeholder="MM / YY">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>CVC</label>
+                        <input class="form-control" id="cvc" type="tel" size="4" data-stripe="cvc" placeholder="555" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-block btn-success submit" type="submit">Pay $Fine_price</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+            </div>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<?php echo $stripe['publishable_key']; ?>"
+                data-description="Access for a year"
+                data-amount="5000"
+                data-locale="auto"></script>
+        </form>
 
       <footer class="footer">
         <p>Courthouse Carpark © Company 2017</p>

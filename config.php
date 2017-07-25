@@ -1,9 +1,10 @@
 <?php
-require_once('stripe/lib/Stripe.php');
+require 'stripe/init.php';
 
 $stripe = array(
-  secret_key      => getenv('sk_live_3BHXVEQozvscHHfm36Sg6jEB'),
-  publishable_key => getenv('pk_live_isHXIIexadvaauIwDjRb6khR')
+  "secret_key"      => "sk_test_JAptxaGW0HjUKq3ierLTfk59",
+  "publishable_key" => "pk_test_Iwf2UwasetNz76gQIXB2rKxe"
 );
-Stripe::setApiKey($stripe['secret_key']);
+
+Stripe\Stripe::setApiKey($stripe['secret_key']);
 ?>
