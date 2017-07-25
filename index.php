@@ -1,4 +1,11 @@
-<?php require_once('./config.php'); ?>
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+
+require_once('config.php');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
