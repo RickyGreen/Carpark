@@ -1,16 +1,26 @@
 <?php
 require_once('./config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+
 
 $token  = $_POST['stripeToken'];
 
 $customer = \Stripe\Customer::create(array(
-    'email' => $POST['email'],
+    'email' => $_POST['email'],
     'source'  => $token
 ));
 
+$card = new stdClass();
+$card->number = $_POST['card_number'];
+$card->cvc = $_POST['cvc'];
+$card->exp_month = $_POST['exp_month'];
+$card->exp_year = $_POST['exp_month'];
+$card->number = $_POST['number'];
+
 $charge = \Stripe\Charge::create(array(
     'customer' => $customer->id,
-    'amount'   => $POST['fee'],
+    'amount'   => $_POST['fee'],
     'currency' => 'GBP'
 ));
 
