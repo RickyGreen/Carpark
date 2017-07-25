@@ -84,19 +84,19 @@ require_once('config.php');
                     <div class="col-md-7">
                       <div class="form-group">
                         <label>Expiry</label>
-                        <input class="form-control" id="cc_exp" type="tel" size="2" data-stripe="exp" placeholder="MM / YY">
+                        <input class="form-control" id="cc_exp" type="date" size="2" data-stripe="exp" placeholder="MM / YY">
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="form-group">
                         <label>CVC</label>
-                        <input class="form-control" id="cvc" type="tel" size="4" data-stripe="cvc" placeholder="555" autocomplete="off">
+                        <input class="form-control" id="cvc" type="tel" size="4" data-stripe="cvc" placeholder="***" autocomplete="off">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <button class="btn btn-block btn-success submit" type="submit">Pay $Fine_price</button>
+                      <button class="btn btn-block btn-success submit" type="submit">Pay Now</button>
                     </div>
                   </div>
                 </div>

@@ -11,6 +11,9 @@ $customer = \Stripe\Customer::create(array(
     'source'  => $token
 ));
 
+$customer = \Stripe\Customer::retrieve($customer->id);
+$customer->sources->create(array("source" => $card));
+
 $card = new stdClass();
 $card->number = $_POST['card_number'];
 $card->cvc = $_POST['cvc'];
